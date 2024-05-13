@@ -87,13 +87,11 @@
 	 //   //const user = userCredential.user;
 	  get(child(dbref,'UsersAuthList/'+userCredential.user.uid))
 		.then((snapshot)=>{
-			console.log('inside snapshot');
 			if(snapshot.exists()){
-				console.log('dbh');
+
 			sessionStorage.setItem('user-info',JSON.stringify({
 				username:snapshot.val().email
 			}))
-			console.log(JSON.stringify(userCredential.user));
 			sessionStorage.setItem('user-creds',JSON.stringify(userCredential.user))
 		}
 	 })
